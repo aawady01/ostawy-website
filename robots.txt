@@ -1,0 +1,11 @@
+# Robots.txt for ostawy.com
+# أُسطاوى - تطبيق تعليم إشارات المرور المصري
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ostawy.com/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+Crawl-delay: 10
