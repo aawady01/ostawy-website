@@ -1,19 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // هذا السطر يخبر Next.js أن يخرج ملفات HTML ثابتة (Static) تناسب GitHub Pages
   output: "export",
+
+  // هذا السطر ضروري جداً لأن GitHub لا يمتلك سيرفر لمعالجة الصور، فنعطل التحسين التلقائي
   images: {
     unoptimized: true,
-  },
-  // @ts-ignore
-  eslint: {
-    // هذا السطر يمنع توقف البناء بسبب أخطاء التدقيق
-    ignoreDuringBuilds: true,
-  },
-  // @ts-ignore
-  typescript: {
-    // هذا السطر يمنع توقف البناء بسبب أخطاء التايب سكريبت
-    ignoreBuildErrors: true,
   },
 };
 
