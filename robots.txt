@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Disallow: /css/
-Disallow: /js/
+# Disallow: /css/ (Removed to allow Googlebot to render page style)
+# Disallow: /js/ (Removed to allow Googlebot to execute scripts)
 
 Sitemap: https://ostawy.com/sitemap.xml

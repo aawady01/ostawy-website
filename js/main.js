@@ -176,13 +176,21 @@ console.log('%c https://ostawy.com ', 'color: #2196F3;');
 // Active Navigation Detection
 // ========================================
 document.addEventListener('DOMContentLoaded', function () {
-    const currentUrl = window.location.href; // Use full URL for accurate comparison
+    // Get current path and filename
+    let currentPath = window.location.pathname;
+    const currentFile = currentPath.substring(currentPath.lastIndexOf('/') + 1) || 'index.html';
+
     const navLinks = document.querySelectorAll('.nav-links a');
 
     navLinks.forEach(link => {
         link.classList.remove('active');
-        // Compare the absolute href of the link with the current window URL
-        if (link.href === currentUrl) {
+
+        // Get the link's filename
+        const linkPath = new URL(link.href).pathname;
+        const linkFile = linkPath.substring(linkPath.lastIndexOf('/') + 1) || 'index.html';
+
+        // Compare filenames
+        if (currentFile === linkFile) {
             link.classList.add('active');
         }
     });

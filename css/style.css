@@ -6,9 +6,9 @@
 /* ========== CSS Variables ========== */
 :root {
   /* Primary Colors - Matching App Theme */
-  --primary-color: #2196F3;
-  --primary-dark: #1976D2;
-  --primary-light: #64B5F6;
+  --primary-color: #05767C;
+  --primary-dark: #03585D;
+  --primary-light: #4CBAC2;
   --accent-color: #4CAF50;
 
   /* Neutral Colors */
@@ -196,11 +196,13 @@ p {
   transition: var(--transition-fast);
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--primary-color);
 }
 
-.nav-links a:hover::after {
+.nav-links a:hover::after,
+.nav-links a.active::after {
   width: 100%;
 }
 
@@ -277,15 +279,22 @@ p {
 }
 
 .hero-description {
-  font-size: 1.15rem;
-  margin-bottom: 35px;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  line-height: 1.8;
   max-width: 500px;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 15px;
   flex-wrap: wrap;
+  gap: 15px;
+}
+
+.hero-buttons .btn {
+  padding: 12px 24px;
+  /* Slightly more compact for 3 buttons */
 }
 
 .hero-image {
@@ -351,8 +360,22 @@ p {
 }
 
 .btn-secondary:hover {
-  background: var(--bg-secondary);
-  transform: translateY(-3px);
+  background: var(--bg-tertiary);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background: rgba(37, 211, 102, 0.1);
+  color: #25D366;
+  border: 1px solid rgba(37, 211, 102, 0.2);
+}
+
+.btn-whatsapp:hover {
+  background: #25D366;
+  color: white;
+  border-color: #25D366;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.25);
 }
 
 .btn-google-play {
