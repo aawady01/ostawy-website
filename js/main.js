@@ -171,3 +171,115 @@ if ('loading' in HTMLImageElement.prototype) {
 console.log('%c أُسطاوى - Ostawy App ', 'background: #2196F3; color: white; font-size: 16px; padding: 10px 20px; border-radius: 5px;');
 console.log('%c تطبيق تعليم إشارات المرور المصري ', 'color: #666; font-size: 12px;');
 console.log('%c https://ostawy.com ', 'color: #2196F3;');
+
+// ========================================
+// Active Navigation Detection
+// ========================================
+document.addEventListener('DOMContentLoaded', function () {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// ========================================
+// Lightbox for App Screenshots
+// ========================================
+document.addEventListener('DOMContentLoaded', function () {
+    // Create lightbox elements
+    const lightbox = document.createElement('div');
+    lightbox.id = 'lightbox';
+    lightbox.innerHTML = `
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="إغلاق">&times;</button>
+            <button class="lightbox-nav lightbox-prev" aria-label="السابق"><i class="fas fa-chevron-right"></i></button>
+            <img src="" alt="" class="lightbox-img">
+            <button class="lightbox-nav lightbox-next" aria-label="التالي"><i class="fas fa-chevron-left"></i></button>
+            <div class="lightbox-caption"></div>
+            <div class="lightbox-counter"></div>
+        </div>
+    `;
+    document.body.appendChild(lightbox);
+    
+    // Add lightbox styles
+    const style = document.createElement('style');
+    style.textContent = `
+        #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 10000; align-items: center; justify-content: center; }
+        #lightbox.active { display: flex; }
+        .lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; text-align: center; }
+        .lightbox-img { max-width: 100%; max-height: 85vh; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .lightbox-close { position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 36px; cursor: pointer; padding: 10px; }
+        .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.15); border: none; color: white; font-size: 24px; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; transition: background 0.3s; }
+        .lightbox-nav:hover { background: rgba(255,255,255,0.3); }
+        .lightbox-prev { right: -70px; }
+        .lightbox-next { left: -70px; }
+        .lightbox-caption { color: white; margin-top: 15px; font-size: 1.1rem; }
+        .lightbox-counter { color: rgba(255,255,255,0.6); margin-top: 8px; font-size: 0.9rem; }
+        @media (max-width: 768px) { .lightbox-nav { display: none; } }
+    `;
+    document.head.appendChild(style);
+    
+    let currentIndex = 0;
+    let images = [];
+    
+    // Get all phone screen images
+    function initLightbox() {
+        images = Array.from(document.querySelectorAll('.phone-screen img'));
+        images.forEach((img, index) => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', () => openLightbox(index));
+        });
+    }
+    
+    function openLightbox(index) {
+        currentIndex = index;
+        updateLightbox();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    function updateLightbox() {
+        const img = images[currentIndex];
+        const lightboxImg = lightbox.querySelector('.lightbox-img');
+        const caption = lightbox.querySelector('.lightbox-caption');
+        const counter = lightbox.querySelector('.lightbox-counter');
+        
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        caption.textContent = img.alt;
+        counter.textContent = `${currentIndex + 1} / ${images.length}`;
+    }
+    
+    function navigate(direction) {
+        currentIndex = (currentIndex + direction + images.length) % images.length;
+        updateLightbox();
+    }
+    
+    // Event listeners
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.querySelector('.lightbox-prev').addEventListener('click', () => navigate(-1));
+    lightbox.querySelector('.lightbox-next').addEventListener('click', () => navigate(1));
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+    
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigate(1);
+        if (e.key === 'ArrowRight') navigate(-1);
+    });
+    
+    // Initialize when DOM is ready
+    setTimeout(initLightbox, 100);
+});
+
