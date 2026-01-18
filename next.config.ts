@@ -7,10 +7,12 @@ const nextConfig: NextConfig = {
   },
   // @ts-ignore
   eslint: {
+    // هذا السطر يمنع توقف البناء بسبب أخطاء التدقيق
     ignoreDuringBuilds: true,
   },
   // @ts-ignore
   typescript: {
+    // هذا السطر يمنع توقف البناء بسبب أخطاء التايب سكريبت
     ignoreBuildErrors: true,
   },
 };
