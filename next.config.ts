@@ -1,11 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export",  // <--- هذا أهم سطر
+  output: 'export',  // <--- ده السطر السحري عشان جيت هب
   images: {
-    unoptimized: true, // ضروري جداً للصور
+    unoptimized: true, // عشان الصور تظهر
   },
-  // تأكد من عدم وجود أي إعدادات أخرى متعارضة
 };
 
 export default nextConfig;
