@@ -35,18 +35,17 @@
         content="تدرب على اختبار القيادة النظري واحفظ إشارات المرور مع تطبيق أُسطاوى. حمل التطبيق الآن!">
     <meta name="twitter:image" content="https://ostawy.com/images/og-image.png">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://ostawy.com/">
+    <!-- Theme Color for PWA -->
+    <meta name="theme-color" content="#05767C">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="apple-touch-icon" href="images/logo.png">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Almarai) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -148,40 +147,63 @@
 
     <!-- Hero Section (Semantic Header) -->
     <header class="hero" id="hero">
+        <div class="hero-mesh"></div> <!-- Mesh Gradient Background -->
         <div class="container hero-container">
             <div class="hero-content">
-                <span class="hero-badge">🚗 تطبيق تعليمي مجاني</span>
-                <h1 class="hero-title">
-                    تعلم إشارات المرور واختبار القيادة مع
-                    <span>أُسطاوى</span>
+                <span class="hero-badge fade-in-up">🚗 تطبيق تعليمي مجاني</span>
+                <h1 class="hero-title fade-in-up delay-1">
+                    تعلم إشارات المرور <br>
+                    واختبار القيادة مع <span>أُسطاوى</span>
                 </h1>
-                <p class="hero-description">
-                    أفضل تطبيق شامل يساعدك على إتقان جميع <strong>إشارات المرور المصرية</strong> واجتياز <strong>اختبار
-                        رخصة القيادة (الكمبيوتر)</strong> بكل سهولة وثقة.
+                <p class="hero-description fade-in-up delay-2">
+                    رفيقك الذكي لإتقان <strong>إشارات المرور المصرية</strong> واجتياز <strong>اختبار القيادة</strong> من
+                    المحاولة الأولى.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#download" class="btn btn-primary">
+
+                <div class="hero-buttons fade-in-up delay-3">
+                    <a href="#download" class="btn btn-primary btn-lg">
                         <i class="fab fa-google-play"></i>
-                        تحميل التطبيق
+                        <span>تحميل التطبيق</span>
                     </a>
-                    <a href="app-preview.html" class="btn btn-secondary">
+                    <a href="app-preview.html" class="btn btn-glass">
                         <i class="fas fa-eye"></i>
-                        معاينة
+                        <span>جولة سريعة</span>
                     </a>
-                    <a href="https://chat.whatsapp.com/G6rqeJl2JXX37Psb8DsxT2" target="_blank" class="btn btn-whatsapp">
+                </div>
+
+                <div class="hero-trust fade-in-up delay-3">
+                    <a href="https://chat.whatsapp.com/G6rqeJl2JXX37Psb8DsxT2" target="_blank" class="trust-badge">
                         <i class="fab fa-whatsapp"></i>
-                        انضم للجروب
+                        <span>انضم لمجتمع السائقين (2500+ عضو)</span>
                     </a>
                 </div>
             </div>
 
-            <div class="hero-image">
+            <div class="hero-visual fade-in-up delay-2">
+                <div class="glass-card float-animation">
+                    <div class="glass-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="glass-content">
+                        <div class="score-row">
+                            <span class="label">نتيجة الاختبار</span>
+                            <span class="value success">98% ممتاز</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 98%"></div>
+                        </div>
+                        <p class="glass-note"><i class="fas fa-check-circle"></i> أنت جاهز لاستخراج الرخصة!</p>
+                    </div>
+                </div>
+
                 <div class="phone-mockup">
                     <div class="phone-frame">
                         <div class="phone-screen">
-                            <img src="images/screenshots/home-screen.jpg"
-                                alt="واجهة تطبيق أُسطاوى الرئيسية تعرض أقسام إشارات المرور والاختبارات"
-                                onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 360 780%22><rect fill=%22%232196F3%22 width=%22360%22 height=%22780%22/><text x=%22180%22 y=%22390%22 fill=%22white%22 font-size=%2224%22 text-anchor=%22middle%22 font-family=%22Arial%22>أُسطاوى</text></svg>'">
+                            <!-- Optimized WebP Image -->
+                            <img src="images/screenshots/home-screen.jpg" alt="واجهة تطبيق أُسطاوى العصرية" width="300"
+                                height="600">
                         </div>
                     </div>
                 </div>
@@ -190,50 +212,49 @@
     </header>
 
     <main>
-        <!-- Features Section -->
+        <!-- Features Section (Bento Grid) -->
         <section class="features" id="features">
             <div class="container">
                 <div class="section-header">
-                    <h2>مميزات تطبيق أُسطاوى لتعليم القيادة</h2>
-                    <p>كل ما تحتاجه لإتقان <strong>إشارات المرور</strong> واجتياز <strong>اختبار المرور</strong> من أول
-                        مرة</p>
+                    <h2>ماذا يقدم <span style="color: var(--primary-color);">أُسطاوى</span>؟</h2>
+                    <p>مجموعة متكاملة من الأدوات التي تضمن لك النجاح من أول مرة</p>
                 </div>
 
                 <div class="features-grid">
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">🚦</div>
-                        <h3>جميع الإشارات</h3>
-                        <p>تعلم كل أنواع الإشارات المرورية: التحذيرية، المانعة، الإلزامية، الإرشادية، والأرضية.</p>
+                    <!-- Featured: All Signs (Large) -->
+                    <div class="feature-card bento-large fade-in">
+                        <div class="feature-content">
+                            <div class="feature-icon">🚦</div>
+                            <h3>موسوعة الإشارات الكاملة</h3>
+                            <p>تعلم كل أنواع الإشارات المرورية: التحذيرية، المانعة، الإلزامية، الإرشادية، واشارات
+                                الأرضية، مع شرح تفصيلي لكل إشارة.</p>
+                        </div>
+                        <div class="feature-decoration"></div>
                     </div>
 
-                    <div class="feature-card fade-in">
+                    <!-- Tests (Tall) -->
+                    <div class="feature-card bento-tall fade-in">
                         <div class="feature-icon">📝</div>
-                        <h3>اختبارات تفاعلية</h3>
-                        <p>محاكاة واقعية لاختبار الكمبيوتر في إدارة المرور مع أسئلة حقيقية ومتنوعة.</p>
+                        <h3>اختبارات محاكاة</h3>
+                        <p>عش تجربة اختبار المرور الحقيقي مع نفس نظام الأسئلة والوقت المحدد.</p>
                     </div>
 
                     <div class="feature-card fade-in">
                         <div class="feature-icon">📊</div>
-                        <h3>تتبع التقدم</h3>
-                        <p>نظام ذكي يتابع مستوى إتقانك لكل سؤال ويحدد نقاط الضعف للتحسين.</p>
+                        <h3>تحليل الأداء</h3>
+                        <p>اعرف نقاط ضعفك وقوها.</p>
                     </div>
 
                     <div class="feature-card fade-in">
                         <div class="feature-icon">🎯</div>
-                        <h3>مراجعة ذكية</h3>
-                        <p>نظام Spaced Repetition يعرض عليك الأسئلة الصعبة في الوقت المناسب للتذكر.</p>
+                        <h3>التكرار المتباعد</h3>
+                        <p>خوارزمية ذكية للمراجعة.</p>
                     </div>
 
-                    <div class="feature-card fade-in">
+                    <div class="feature-card bento-wide fade-in">
                         <div class="feature-icon">📋</div>
-                        <h3>إجراءات التراخيص</h3>
-                        <p>دليل شامل للأوراق المطلوبة لاستخراج وتجديد رخصة القيادة في مصر.</p>
-                    </div>
-
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">⭐</div>
-                        <h3>مفضلة وحفظ</h3>
-                        <p>احفظ الإشارات والأسئلة المهمة للرجوع إليها في أي وقت.</p>
+                        <h3>إجراءات التراخيص والأوراق المطلوبة</h3>
+                        <p>دليل محدث لعام 2026</p>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,22 @@
+{
+    "name": "أُسطاوى - تعليم القيادة",
+    "short_name": "أُسطاوى",
+    "description": "التطبيق الأول في مصر لتعلم إشارات المرور واجتياز اختبار القيادة.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#05767C",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
