@@ -1,4 +1,0 @@
-export * from "./hero"
-export * from "./features"
-export * from "./stats"
-export * from "./download-cta"
