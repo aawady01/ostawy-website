@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>معاينة التطبيق | أُسطاوى - Ostawy App</title>
+    <meta name="description"
+        content="استعرض شاشات تطبيق أُسطاوى لتعليم إشارات المرور المصري. شاهد واجهة التطبيق ومميزاته قبل التحميل.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ostawy.com/app-preview.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- App Preview Styles -->
+    <style>
+        .app-preview-section {
+            padding: 60px 0;
+        }
+
+        .screens-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .screen-item {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.1));
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .screen-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .screen-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .screen-description {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* Phone Mockup */
+        .phone-mockup-container {
+            position: relative;
+            width: 240px;
+            height: 500px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .phone-frame {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border-radius: 36px;
+            padding: 12px;
+            box-shadow:
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-frame::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 24px;
+            background: #000;
+            border-radius: 12px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 26px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .phone-screen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.3s ease;
+        }
+
+        .screen-item:hover .phone-screen img {
+            transform: scale(1.02);
+        }
+
+        /* Screen Category Badges */
+        .screen-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 20px;
+            margin-bottom: 10px;
+        }
+
+        .badge-home {
+            background: linear-gradient(135deg, #00897B, #4DB6AC);
+            color: white;
+        }
+
+        .badge-signs {
+            background: linear-gradient(135deg, #1565C0, #42A5F5);
+            color: white;
+        }
+
+        .badge-quiz {
+            background: linear-gradient(135deg, #7B1FA2, #BA68C8);
+            color: white;
+        }
+
+        .badge-results {
+            background: linear-gradient(135deg, #2E7D32, #66BB6A);
+            color: white;
+        }
+
+        .badge-theory {
+            background: linear-gradient(135deg, #388E3C, #81C784);
+            color: white;
+        }
+
+        .badge-stats {
+            background: linear-gradient(135deg, #00838F, #4DD0E1);
+            color: white;
+        }
+
+        .badge-favorites {
+            background: linear-gradient(135deg, #F57C00, #FFB74D);
+            color: white;
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .section-divider h2 {
+            font-size: 1.8rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .section-divider p {
+            color: var(--text-muted);
+        }
+
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        /* Feature Highlights */
+        .feature-highlight {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            background: rgba(0, 150, 136, 0.15);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .feature-tag i {
+            font-size: 0.7rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .screens-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .phone-mockup-container {
+                width: 200px;
+                height: 420px;
+            }
+
+            .screen-item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="أُسطاوى">
+                <span>أُسطاوى</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="app-preview.html" class="active">معاينة التطبيق</a></li>
+                <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+                <li><a href="privacy.html">الخصوصية</a></li>
+                <li><a href="terms.html">شروط الاستخدام</a></li>
+            </ul>
+
+            <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1><i class="fas fa-mobile-alt"></i> معاينة التطبيق</h1>
+            <p>استعرض شاشات تطبيق أُسطاوى قبل التحميل</p>
+        </div>
+    </section>
+
+    <!-- App Preview Content -->
+    <section class="app-preview-section content-section">
+        <div class="container">
+
+            <!-- Home & Main Screens -->
+            <div class="section-divider">
+                <h2><i class="fas fa-home"></i> الشاشة الرئيسية</h2>
+                <p>الواجهة الرئيسية للتطبيق مع جميع أقسام إشارات المرور</p>
+            </div>
+
+            <div class="screens-grid">
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-home">الرئيسية</span>
+                    <h3 class="screen-title">الشاشة الرئيسية</h3>
+                    <p class="screen-description">6 أقسام من إشارات المرور: الإلزامية، المنع، التحذير، الإرشاد، الأرضية،
+                        والضوئية</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_115422.jpg" alt="الشاشة الرئيسية">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-highlight">
+                        <span class="feature-tag"><i class="fas fa-th-large"></i> 6 أقسام</span>
+                        <span class="feature-tag"><i class="fas fa-traffic-light"></i> +100 إشارة</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Traffic Signs Sections -->
+            <div class="section-divider">
+                <h2><i class="fas fa-traffic-light"></i> إشارات المرور</h2>
+                <p>تعلم جميع أنواع إشارات المرور المصرية مع شرح تفصيلي</p>
+            </div>
+
+            <div class="screens-grid">
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-signs"
+                        style="background: linear-gradient(135deg, #C62828, #EF5350);">علامات المنع</span>
+                    <h3 class="screen-title">قائمة علامات المنع</h3>
+                    <p class="screen-description">استعرض 30+ علامة منع مع شروحات تفصيلية لكل علامة</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_115500.jpg" alt="علامات المنع">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-signs"
+                        style="background: linear-gradient(135deg, #C62828, #EF5350);">تفاصيل الإشارة</span>
+                    <h3 class="screen-title">تفاصيل علامة المنع</h3>
+                    <p class="screen-description">شرح تفصيلي لكل إشارة مع إمكانية الحفظ والمشاركة</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_115523.jpg" alt="تفاصيل إشارة المنع">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-signs">علامات الإرشاد</span>
+                    <h3 class="screen-title">علامات المرور الإرشادية</h3>
+                    <p class="screen-description">تعرف على علامات الإرشاد التي تساعدك في الطريق</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_115603.jpg" alt="علامات الإرشاد">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-signs"
+                        style="background: linear-gradient(135deg, #1565C0, #42A5F5);">علامات الإلزام</span>
+                    <h3 class="screen-title">علامات المرور الإلزامية</h3>
+                    <p class="screen-description">الإشارات الإلزامية التي يجب الالتزام بها أثناء القيادة</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_115712.jpg" alt="علامات الإلزام">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Section -->
+            <div class="section-divider">
+                <h2><i class="fas fa-question-circle"></i> الاختبارات التفاعلية</h2>
+                <p>اختبر معلوماتك مع أسئلة متنوعة ومحاكاة للاختبار الفعلي</p>
+            </div>
+
+            <div class="screens-grid">
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-quiz">بدء الاختبار</span>
+                    <h3 class="screen-title">إعداد الاختبار</h3>
+                    <p class="screen-description">اختر عدد الأسئلة وابدأ اختبارك التدريبي</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_115745.jpg" alt="إعداد الاختبار">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-quiz"
+                        style="background: linear-gradient(135deg, #6A1B9A, #AB47BC);">اختبار الإشارات</span>
+                    <h3 class="screen-title">اختبار علامات التحذير</h3>
+                    <p class="screen-description">أسئلة اختيار من متعدد مع صور الإشارات الحقيقية</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_120127.jpg" alt="اختبار الإشارات">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-quiz"
+                        style="background: linear-gradient(135deg, #C62828, #EF5350);">اختبار المنع</span>
+                    <h3 class="screen-title">اختبار علامات المنع</h3>
+                    <p class="screen-description">تدرب على أسئلة علامات المنع والتقييد</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_120400.jpg" alt="اختبار علامات المنع">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="section-divider">
+                <h2><i class="fas fa-trophy"></i> النتائج والمراجعة</h2>
+                <p>تتبع تقدمك وراجع أخطاءك لتحسين مستواك</p>
+            </div>
+
+            <div class="screens-grid">
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-results">نتيجة ناجحة</span>
+                    <h3 class="screen-title">شاشة النتيجة</h3>
+                    <p class="screen-description">نتيجتك مع نسبة النجاح وعدد الإجابات الصحيحة والخاطئة</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_120206.jpg" alt="نتيجة الاختبار">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-highlight">
+                        <span class="feature-tag"><i class="fas fa-percentage"></i> نسبة النجاح 80%</span>
+                        <span class="feature-tag"><i class="fas fa-share-alt"></i> مشاركة</span>
+                    </div>
+                </div>
+
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-quiz">مراجعة الأخطاء</span>
+                    <h3 class="screen-title">مراجعة الأخطاء</h3>
+                    <p class="screen-description">راجع الأسئلة التي أخطأت فيها لتحسين مستواك</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_120238.jpg" alt="مراجعة الأخطاء">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theory Questions Section -->
+            <div class="section-divider">
+                <h2><i class="fas fa-book"></i> أسئلة رخصة القيادة النظري</h2>
+                <p>+124 سؤال من أسئلة اختبار الكمبيوتر الفعلي</p>
+            </div>
+
+            <div class="screens-grid">
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-theory">الأسئلة النظرية</span>
+                    <h3 class="screen-title">بنك الأسئلة النظرية</h3>
+                    <p class="screen-description">أسئلة متنوعة تغطي جميع مواضيع اختبار رخصة القيادة</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_120637.jpg" alt="أسئلة نظرية">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-highlight">
+                        <span class="feature-tag"><i class="fas fa-list-ol"></i> 124 سؤال</span>
+                        <span class="feature-tag"><i class="fas fa-image"></i> صور توضيحية</span>
+                    </div>
+                </div>
+
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-theory">تفاصيل السؤال</span>
+                    <h3 class="screen-title">سؤال مع شرح</h3>
+                    <p class="screen-description">شرح تفصيلي لكل سؤال مع الإجابة الصحيحة</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_120800.jpg" alt="تفاصيل السؤال">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-theory">اختبار النظري</span>
+                    <h3 class="screen-title">إعداد اختبار النظري</h3>
+                    <p class="screen-description">محاكاة لاختبار الكمبيوتر في إدارة المرور</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_120855.jpg" alt="اختبار النظري">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics & Favorites Section -->
+            <div class="section-divider">
+                <h2><i class="fas fa-chart-line"></i> الإحصائيات والمفضلة</h2>
+                <p>تتبع تقدمك واحفظ الإشارات المهمة</p>
+            </div>
+
+            <div class="screens-grid">
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-stats">الإحصائيات</span>
+                    <h3 class="screen-title">ملخص الاختبارات</h3>
+                    <p class="screen-description">نسبة نجاحك وإنجازاتك ومستوى تقدمك</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_121336.jpg" alt="الإحصائيات">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feature-highlight">
+                        <span class="feature-tag"><i class="fas fa-trophy"></i> إنجازات</span>
+                        <span class="feature-tag"><i class="fas fa-calendar"></i> تتبع يومي</span>
+                    </div>
+                </div>
+
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-stats">التحسن</span>
+                    <h3 class="screen-title">معدل التحسن</h3>
+                    <p class="screen-description">تتبع مستوى الإتقان ووقت الاستخدام</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_121912.jpg" alt="معدل التحسن">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="screen-item fade-in">
+                    <span class="screen-badge badge-favorites">المحفوظة</span>
+                    <h3 class="screen-title">المحفوظة للمراجعة</h3>
+                    <p class="screen-description">الإشارات والأسئلة المحفوظة للمراجعة السريعة</p>
+                    <div class="phone-mockup-container">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <img src="appScreenShot/Screenshot_20260118_121456.jpg" alt="المفضلة">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download CTA -->
+            <div class="alert-box" style="margin-top: 60px; text-align: center;">
+                <h4><i class="fas fa-download"></i> حمّل التطبيق الآن</h4>
+                <p style="margin-bottom: 20px;">ابدأ رحلتك نحو إتقان إشارات المرور واجتياز الاختبار بنجاح</p>
+                <a href="index.html#download" class="btn btn-primary" style="display: inline-flex;">
+                    <i class="fab fa-google-play"></i>
+                    تحميل من Google Play
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>أُسطاوى</h3>
+                    <p>تطبيق تعليم إشارات المرور المصري - رحلتك نحو رخصة القيادة تبدأ من هنا.</p>
+                    <div class="footer-social">
+                        <a href="https://wa.me/+201550035776" target="_blank" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.facebook.com/ahmed.mohamed.alsayed.554426/" target="_blank" title="فيسبوك">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/aawady01/" target="_blank" title="لينكد إن">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:aawady01@gmail.com" title="البريد الإلكتروني">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="app-preview.html">معاينة التطبيق</a></li>
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>القانونية</h4>
+                    <ul>
+                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                        <li><a href="terms.html">شروط الاستخدام</a></li>
+                        <li><a href="delete-data.html">حذف البيانات</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 أُسطاوى - جميع الحقوق محفوظة | تطوير <a href="contact.html"
+                        style="color: var(--primary-light);">أحمد العوضي</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
