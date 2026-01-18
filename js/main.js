@@ -176,13 +176,13 @@ console.log('%c https://ostawy.com ', 'color: #2196F3;');
 // Active Navigation Detection
 // ========================================
 document.addEventListener('DOMContentLoaded', function () {
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const currentUrl = window.location.href; // Use full URL for accurate comparison
     const navLinks = document.querySelectorAll('.nav-links a');
-    
+
     navLinks.forEach(link => {
         link.classList.remove('active');
-        const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        // Compare the absolute href of the link with the current window URL
+        if (link.href === currentUrl) {
             link.classList.add('active');
         }
     });
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
     `;
     document.body.appendChild(lightbox);
-    
+
     // Add lightbox styles
     const style = document.createElement('style');
     style.textContent = `
@@ -224,10 +224,10 @@ document.addEventListener('DOMContentLoaded', function () {
         @media (max-width: 768px) { .lightbox-nav { display: none; } }
     `;
     document.head.appendChild(style);
-    
+
     let currentIndex = 0;
     let images = [];
-    
+
     // Get all phone screen images
     function initLightbox() {
         images = Array.from(document.querySelectorAll('.phone-screen img'));
@@ -236,49 +236,49 @@ document.addEventListener('DOMContentLoaded', function () {
             img.addEventListener('click', () => openLightbox(index));
         });
     }
-    
+
     function openLightbox(index) {
         currentIndex = index;
         updateLightbox();
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
-    
+
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.style.overflow = '';
     }
-    
+
     function updateLightbox() {
         const img = images[currentIndex];
         const lightboxImg = lightbox.querySelector('.lightbox-img');
         const caption = lightbox.querySelector('.lightbox-caption');
         const counter = lightbox.querySelector('.lightbox-counter');
-        
+
         lightboxImg.src = img.src;
         lightboxImg.alt = img.alt;
         caption.textContent = img.alt;
         counter.textContent = `${currentIndex + 1} / ${images.length}`;
     }
-    
+
     function navigate(direction) {
         currentIndex = (currentIndex + direction + images.length) % images.length;
         updateLightbox();
     }
-    
+
     // Event listeners
     lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
     lightbox.querySelector('.lightbox-prev').addEventListener('click', () => navigate(-1));
     lightbox.querySelector('.lightbox-next').addEventListener('click', () => navigate(1));
     lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-    
+
     document.addEventListener('keydown', (e) => {
         if (!lightbox.classList.contains('active')) return;
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft') navigate(1);
         if (e.key === 'ArrowRight') navigate(-1);
     });
-    
+
     // Initialize when DOM is ready
     setTimeout(initLightbox, 100);
 });
