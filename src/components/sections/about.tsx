@@ -92,13 +92,7 @@ export function About() {
 
                             {/* Floating cards */}
                             <div className="absolute -bottom-6 -left-6 z-20 p-6 glass-card rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl animate-float">
-                                <Image
-                                    src="/images/icon.png"
-                                    alt="أيقونة تطبيق أُسطاوى"
-                                    width={48}
-                                    height={48}
-                                    className="mb-2 rounded-xl"
-                                />
+                                <div className="text-4xl font-bold text-foreground mb-1">2026</div>
                                 <div className="text-muted-foreground font-medium text-sm">الإصدار الأحدث</div>
                             </div>
                         </div>

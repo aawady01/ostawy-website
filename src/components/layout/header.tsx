@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { useScroll } from "@/hooks/use-scroll"
+import { useActiveSection } from "@/hooks/use-active-section"
 import { Button } from "@/components/ui/button"
 // Start of Selection
 import {
@@ -30,6 +31,19 @@ export function Header() {
     const pathname = usePathname()
     const [isOpen, setIsOpen] = React.useState(false)
     const isHome = pathname === "/"
+
+    // Track active section for home page scrolling
+    const activeSection = useActiveSection(["features", "about", "download", "testimonials", "stats"])
+
+    // Helper to determine if a link is active
+    const isActive = (href: string) => {
+        if (href === "/") return isHome && !activeSection
+        if (href.startsWith("/#")) {
+            const sectionId = href.replace("/#", "")
+            return isHome && activeSection === sectionId
+        }
+        return pathname === href
+    }
 
     return (
         <header
@@ -65,7 +79,7 @@ export function Header() {
                             href={item.href}
                             className={cn(
                                 "px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-primary/10 hover:text-primary",
-                                pathname === item.href
+                                isActive(item.href)
                                     ? "bg-primary/10 text-primary font-bold"
                                     : "text-foreground/80"
                             )}
@@ -116,7 +130,7 @@ export function Header() {
                                     onClick={() => setIsOpen(false)}
                                     className={cn(
                                         "text-lg font-medium px-4 py-3 rounded-lg transition-colors hover:bg-muted",
-                                        pathname === item.href
+                                        isActive(item.href)
                                             ? "bg-primary/10 text-primary font-bold"
                                             : "text-foreground/80"
                                     )}
