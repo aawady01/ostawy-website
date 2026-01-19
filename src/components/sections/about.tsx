@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Star, Users } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 export function About() {
     return (
@@ -71,23 +72,29 @@ export function About() {
                         </div>
                     </div>
 
-                    {/* Image/Stats */}
-                    <div className="order-1 lg:order-2 relative">
-                        <div className="relative rounded-[2.5rem] overflow-hidden border-8 border-background/50 shadow-2xl bg-muted aspect-square sm:aspect-[4/3] lg:aspect-square flex items-center justify-center">
-                            {/* Abstract visualization or placeholder for about image */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800" />
 
-                            {/* Floating cards */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="text-center space-y-2 z-10 p-8 glass-card rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10">
-                                    <div className="text-6xl font-bold text-white mb-2">2026</div>
-                                    <div className="text-white/80 font-medium text-xl">الإصدار الأحدث والأذكى</div>
-                                </div>
+                    {/* Image/Stats */}
+                    <div className="order-1 lg:order-2 relative flex justify-center">
+                        <div className="relative w-full max-w-[500px] aspect-square">
+                            {/* Glow Effect */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-teal-400/20 blur-[60px] rounded-full transform scale-90" />
+                            
+                            {/* 3D Illustration */}
+                            <div className="relative z-10 w-full h-full transform hover:scale-105 transition-transform duration-700 ease-in-out">
+                                 <Image
+                                    src="/images/about-illustration.png"
+                                    alt="تعليم قيادة آمن وذكي"
+                                    fill
+                                    className="object-contain drop-shadow-2xl"
+                                    priority
+                                />
                             </div>
 
-                            {/* Decorative circles */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] border border-white/5 rounded-full animate-[spin_20s_linear_infinite]" />
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] border border-white/10 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
+                            {/* Floating cards */}
+                            <div className="absolute -bottom-6 -left-6 z-20 p-6 glass-card rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl animate-float">
+                                <div className="text-4xl font-bold text-foreground mb-1">2026</div>
+                                <div className="text-muted-foreground font-medium text-sm">الإصدار الأحدث</div>
+                            </div>
                         </div>
                     </div>
 
