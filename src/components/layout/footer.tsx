@@ -103,7 +103,7 @@ export function Footer() {
                 <div className="mt-12 pt-8 border-t border-border/50 text-center text-muted-foreground text-sm flex flex-col md:flex-row justify-between items-center gap-4">
                     <p>© {currentYear} تطبيق أُسطاوى. جميع الحقوق محفوظة.</p>
                     <p className="text-xs">
-                        تم التطوير بواسطة <span className="font-bold text-primary">Ahmed Al-Awady</span>
+                        تم التطوير بواسطة <span className="font-bold text-primary">تطبيق أُسطاوى</span>
                     </p>
                 </div>
             </div>

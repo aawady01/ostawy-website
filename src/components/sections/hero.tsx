@@ -164,7 +164,7 @@ export function Hero() {
                         <div className="flex items-center gap-4">
                             <div className="text-right">
                                 <p className="text-sm font-bold text-foreground">بنك أسئلة</p>
-                                <p className="text-xs text-muted-foreground font-medium">محدث 2024</p>
+                                <p className="text-xs text-muted-foreground font-medium">محدث 2026</p>
                             </div>
                             <div className="w-12 h-12 rounded-full bg-amber-100/80 flex items-center justify-center text-amber-600 text-2xl shadow-sm">📚</div>
                         </div>

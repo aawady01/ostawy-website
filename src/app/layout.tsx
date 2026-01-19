@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Almarai } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Header, Footer } from "@/components/layout"
 
 const almarai = Almarai({
   subsets: ["arabic"],
@@ -22,8 +23,8 @@ export const metadata: Metadata = {
     "مرور مصر", "تطبيق أسطاوى", "اختبار القيادة النظري", "بوكلت المرور",
     "استخراج رخصة قيادة", "مدرسة تعليم القيادة", "Awady Ostawy", "Traffic Signs Egypt"
   ],
-  authors: [{ name: "Ahmed Al-Awady", url: "https://www.linkedin.com/in/aawady01/" }],
-  creator: "Ahmed Al-Awady",
+  authors: [{ name: "تطبيق أُسطاوى", url: "https://ostawy.com" }],
+  creator: "تطبيق أُسطاوى",
   publisher: "Ostawy",
   metadataBase: new URL("https://ostawy.com"),
   alternates: {
@@ -119,7 +120,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="flex min-h-screen flex-col bg-background">
+            <Header />
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>
