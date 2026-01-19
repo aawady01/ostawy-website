@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Star, Users } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import Image from "next/image"
 
 export function About() {
     return (
@@ -78,10 +79,10 @@ export function About() {
                         <div className="relative w-full max-w-[500px] aspect-square">
                             {/* Glow Effect */}
                             <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-teal-400/20 blur-[60px] rounded-full transform scale-90" />
-                            
+
                             {/* 3D Illustration */}
                             <div className="relative z-10 w-full h-full transform hover:scale-105 transition-transform duration-700 ease-in-out">
-                                 <Image
+                                <Image
                                     src="/images/about-illustration.png"
                                     alt="تعليم قيادة آمن وذكي"
                                     fill
@@ -92,7 +93,13 @@ export function About() {
 
                             {/* Floating cards */}
                             <div className="absolute -bottom-6 -left-6 z-20 p-6 glass-card rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl animate-float">
-                                <div className="text-4xl font-bold text-foreground mb-1">2026</div>
+                                <Image
+                                    src="/images/badge-icon.png" // Assuming a new image for the badge
+                                    alt="الإصدار الأحدث"
+                                    width={48} // Adjust size as needed
+                                    height={48} // Adjust size as needed
+                                    className="mb-2"
+                                />
                                 <div className="text-muted-foreground font-medium text-sm">الإصدار الأحدث</div>
                             </div>
                         </div>
