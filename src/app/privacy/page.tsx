@@ -7,6 +7,28 @@ export default function PrivacyPage() {
     return (
         <div className="container py-20 px-4 md:px-6 max-w-4xl mx-auto">
             <div className="text-center mb-12 space-y-4">
+                {/* Breadcrumb Schema */}
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [{
+                                "@type": "ListItem",
+                                "position": 1,
+                                "name": "الرئيسية",
+                                "item": "https://ostawy.com"
+                            }, {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "name": "سياسة الخصوصية",
+                                "item": "https://ostawy.com/privacy"
+                            }]
+                        })
+                    }}
+                />
+
                 <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-400">
                     سياسة الخصوصية
                 </h1>

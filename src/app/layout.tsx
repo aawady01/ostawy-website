@@ -16,29 +16,89 @@ export const metadata: Metadata = {
     template: "%s | أُسطاوى",
   },
   description: "التطبيق الأول في مصر لتعلم إشارات المرور واجتياز اختبار القيادة النظري. اختبارات تفاعلية، موسوعة شاملة للإشارات، وشرح لقواعد المرور.",
-  keywords: ["تعليم قيادة", "إشارات المرور", "رخصة القيادة المصرية", "اختبار الإشارات", "مرور مصر", "تطبيق أسطاوى"],
-  authors: [{ name: "Ahmed Alawady" }],
+  applicationName: "أُسطاوى",
+  keywords: [
+    "تعليم قيادة", "إشارات المرور", "رخصة القيادة المصرية", "اختبار الإشارات",
+    "مرور مصر", "تطبيق أسطاوى", "اختبار القيادة النظري", "بوكلت المرور",
+    "استخراج رخصة قيادة", "مدرسة تعليم القيادة", "Awady Ostawy", "Traffic Signs Egypt"
+  ],
+  authors: [{ name: "Ahmed Al-Awady", url: "https://www.linkedin.com/in/aawady01/" }],
+  creator: "Ahmed Al-Awady",
+  publisher: "Ostawy",
+  metadataBase: new URL("https://ostawy.com"),
+  alternates: {
+    canonical: "/",
+    languages: {
+      "ar-EG": "/",
+    },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "أُسطاوى - تعلم إشارات المرور واختبار القيادة المصري",
-    description: "حمل تطبيق أُسطاوى مجاناً! رفيقك لاجتياز اختبار القيادة وفهم إشارات المرور.",
+    title: "أُسطاوى - رفيقك لاجتياز اختبار القيادة",
+    description: "حمل تطبيق أُسطاوى مجاناً! أفضل طريقة لتعلم إشارات المرور والتدرب على الاختبار النظري في مصر.",
     url: "https://ostawy.com",
     siteName: "أُسطاوى",
     locale: "ar_EG",
     type: "website",
+    images: [
+      {
+        url: "/images/og-image.png", // Corrected extension
+        width: 1200,
+        height: 630,
+        alt: "تطبيق أُسطاوى لتعليم القيادة",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "أُسطاوى - تطبيق تعليم القيادة",
-    description: "تعلم إشارات المرور وتدرب على الاختبار النظري مع أُسطاوى.",
+    description: "تعلم إشارات المرور وتدرب على الاختبار النظري مع أُسطاوى بكل سهولة.",
+    creator: "@aawady01",
+    images: ["/images/og-image.png"],
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "أُسطاوى",
   },
   manifest: "/manifest.json",
+};
+
+// Structured Data for Organization (Logo, Social Links)
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "أُسطاوى",
+  "url": "https://ostawy.com",
+  "logo": "https://ostawy.com/images/icon.png",
+  "sameAs": [
+    "https://www.facebook.com/ahmed.mohamed.alsayed.554426/",
+    "https://www.linkedin.com/in/aawady01/"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+20-155-003-5776",
+    "contactType": "customer service",
+    "areaServed": "EG",
+    "availableLanguage": "Arabic"
+  }
 };
 
 export const viewport = {
   themeColor: "#05767C",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -49,6 +109,10 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body className={`${almarai.className} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

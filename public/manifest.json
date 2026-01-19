@@ -7,6 +7,10 @@
     "background_color": "#ffffff",
     "theme_color": "#05767C",
     "orientation": "portrait",
+    "categories": [
+        "education",
+        "productivity"
+    ],
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -17,6 +21,19 @@
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "الأسئلة الشائعة",
+            "short_name": "الأسئلة",
+            "url": "/faq",
+            "icons": [
+                {
+                    "src": "/android-chrome-192x192.png",
+                    "sizes": "192x192"
+                }
+            ]
         }
     ]
 }
