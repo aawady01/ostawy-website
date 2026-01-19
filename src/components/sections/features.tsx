@@ -53,7 +53,7 @@ const item = {
 
 export function Features() {
     return (
-        <section id="features" className="py-24 bg-secondary/30 relative overflow-hidden">
+        <section id="features" className="py-24 bg-gradient-to-b from-secondary/40 via-background to-secondary/20 relative overflow-hidden">
             {/* Background Decor */}
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 

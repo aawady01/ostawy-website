@@ -49,22 +49,22 @@
 :root {
   --radius: 0.75rem;
 
-  /* Base - Crisp White & Deep Green Text */
-  --background: #F8FAFC;
-  --foreground: #0A2E36;
-  /* Deep Green-Black */
+  /* Base - Tinted Mint-White */
+  --background: #F7FBFB;
+  --foreground: #083338;
+  /* Deep Teal-Black */
 
   /* Primary - Deep Teal */
   --primary: #05767C;
   --primary-foreground: #ffffff;
 
-  /* Secondary - Cool Grey */
-  --secondary: #F4F7F6;
+  /* Secondary - Soft Sage/Mint Surface */
+  --secondary: #EAF4F4;
   --secondary-foreground: #05767C;
 
-  /* Muted - Soft background */
-  --muted: #EEF2F2;
-  --muted-foreground: #4A656B;
+  /* Muted - Subtle Backgrounds */
+  --muted: #E2EDED;
+  --muted-foreground: #4A6B70;
 
   /* Accent - Gold / Interaction */
   --accent: #F4F7F6;
@@ -157,12 +157,16 @@
 
 /* Blob Animation for Hero Section */
 @keyframes blob {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
+
   33% {
     transform: translate(30px, -50px) scale(1.1);
   }
+
   66% {
     transform: translate(-20px, 20px) scale(0.9);
   }
