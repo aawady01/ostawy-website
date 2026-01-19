@@ -30,13 +30,13 @@ export function Footer() {
                             نقدم لك تجربة تعليمية شاملة وممتعة لضمان نجاحك في اختبار القيادة.
                         </p>
                         <div className="flex items-center gap-4 mt-2">
-                            <Link href="https://www.facebook.com/ahmed.mohamed.alsayed.554426/" target="_blank" className="p-2 rounded-full bg-background hover:bg-primary/10 hover:text-primary transition-colors hover:-translate-y-1 transform duration-300 shadow-sm border border-border">
+                            <Link href="https://www.facebook.com/ahmed.mohamed.alsayed.554426/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-background hover:bg-primary/10 hover:text-primary transition-colors hover:-translate-y-1 transform duration-300 shadow-sm border border-border">
                                 <Facebook className="w-5 h-5" />
                             </Link>
-                            <Link href="https://www.linkedin.com/in/aawady01/" target="_blank" className="p-2 rounded-full bg-background hover:bg-primary/10 hover:text-primary transition-colors hover:-translate-y-1 transform duration-300 shadow-sm border border-border">
+                            <Link href="https://www.linkedin.com/in/aawady01/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-background hover:bg-primary/10 hover:text-primary transition-colors hover:-translate-y-1 transform duration-300 shadow-sm border border-border">
                                 <Linkedin className="w-5 h-5" />
                             </Link>
-                            <Link href="https://wa.me/+201550035776" target="_blank" className="p-2 rounded-full bg-background hover:bg-primary/10 hover:text-primary transition-colors hover:-translate-y-1 transform duration-300 shadow-sm border border-border">
+                            <Link href="https://wa.me/+201550035776" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-background hover:bg-primary/10 hover:text-primary transition-colors hover:-translate-y-1 transform duration-300 shadow-sm border border-border">
                                 <Phone className="w-5 h-5" />
                             </Link>
                         </div>

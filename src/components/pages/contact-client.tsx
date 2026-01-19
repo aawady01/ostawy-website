@@ -73,7 +73,7 @@ export default function ContactClient() {
                                     <p className="text-sm text-muted-foreground mt-1" dir="ltr">01550035776</p>
                                 </div>
                                 <Button variant="ghost" size="sm" asChild className="text-green-600 hover:text-green-700 hover:bg-green-50">
-                                    <Link href="https://wa.me/+201550035776" target="_blank">مراسلة</Link>
+                                    <Link href="https://wa.me/+201550035776" target="_blank" rel="noopener noreferrer">مراسلة</Link>
                                 </Button>
                             </CardContent>
                         </Card>
@@ -103,7 +103,7 @@ export default function ContactClient() {
                                     <p className="text-sm text-muted-foreground mt-1">Ahmed Alsayed</p>
                                 </div>
                                 <Button variant="ghost" size="sm" asChild className="text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50">
-                                    <Link href="https://www.facebook.com/ahmed.mohamed.alsayed.554426/" target="_blank">زيارة</Link>
+                                    <Link href="https://www.facebook.com/ahmed.mohamed.alsayed.554426/" target="_blank" rel="noopener noreferrer">زيارة</Link>
                                 </Button>
                             </CardContent>
                         </Card>
@@ -118,7 +118,7 @@ export default function ContactClient() {
                                     <p className="text-sm text-muted-foreground mt-1">Ahmed Alsayed</p>
                                 </div>
                                 <Button variant="ghost" size="sm" asChild className="text-cyan-600 hover:text-cyan-700 hover:bg-cyan-50">
-                                    <Link href="https://www.linkedin.com/in/aawady01/" target="_blank">تواصل</Link>
+                                    <Link href="https://www.linkedin.com/in/aawady01/" target="_blank" rel="noopener noreferrer">تواصل</Link>
                                 </Button>
                             </CardContent>
                         </Card>

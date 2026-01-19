@@ -83,7 +83,7 @@ export function Header() {
                         className="rounded-full text-green-600 hover:text-green-700 hover:bg-green-100/50"
                         asChild
                     >
-                        <Link href="https://chat.whatsapp.com/ExsampleGroupLink" target="_blank" title="انضم لجروب الواتساب">
+                        <Link href="https://chat.whatsapp.com/ExsampleGroupLink" target="_blank" rel="noopener noreferrer" title="انضم لجروب الواتساب">
                             <Phone className="w-5 h-5" />
                         </Link>
                     </Button>
@@ -92,7 +92,7 @@ export function Header() {
                         className="rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:-translate-y-0.5"
                         asChild
                     >
-                        <Link href="https://play.google.com/store/apps/details?id=com.awady.ostawy" target="_blank">
+                        <Link href="https://play.google.com/store/apps/details?id=com.awady.ostawy" target="_blank" rel="noopener noreferrer">
                             تحميل التطبيق
                         </Link>
                     </Button>
@@ -126,7 +126,7 @@ export function Header() {
                             ))}
                             <div className="mt-8 px-4">
                                 <Button className="w-full rounded-full" size="lg" asChild>
-                                    <Link href="https://play.google.com/store/apps/details?id=com.awady.ostawy" target="_blank">
+                                    <Link href="https://play.google.com/store/apps/details?id=com.awady.ostawy" target="_blank" rel="noopener noreferrer">
                                         تحميل التطبيق مجاناً
                                     </Link>
                                 </Button>

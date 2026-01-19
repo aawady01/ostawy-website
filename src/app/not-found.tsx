@@ -1,19 +1,35 @@
-import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+
+export const metadata = {
+    title: "الصفحة غير موجودة | أُسطاوى",
+    description: "عذراً، الصفحة التي تبحث عنها غير موجودة.",
+}
 
 export default function NotFound() {
     return (
-        <div className="flex flex-col items-center justify-center min-h-[70vh] text-center space-y-6 px-4">
-            <h2 className="text-9xl font-extrabold text-primary/20">404</h2>
-            <h1 className="text-3xl font-bold">الصفحة غير موجودة</h1>
-            <p className="text-muted-foreground text-lg max-w-md">
-                عذراً، الصفحة التي تحاول الوصول إليها قد تكون حُذفت أو تم تغيير رابطها.
+        <div className="flex flex-col items-center justify-center min-h-[80vh] bg-background text-center px-4">
+            <h1 className="text-9xl font-extrabold text-primary/20 select-none">404</h1>
+            <h2 className="text-3xl md:text-5xl font-bold -mt-10 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-400">
+                عذراً، الطريق مسدود!
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-lg mb-8">
+                يبدو أنك ضللت الطريق. الصفحة التي تبحث عنها غير موجودة أو تم نقلها.
+                لا تقلق، يمكنك العودة للرئيسية.
             </p>
-            <Button asChild size="lg">
-                <Link href="/">
-                    العودة للرئيسية
-                </Link>
-            </Button>
+
+            <div className="flex gap-4">
+                <Button asChild size="lg" className="rounded-full px-8">
+                    <Link href="/">
+                        العودة للرئيسية
+                    </Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="rounded-full px-8">
+                    <Link href="/contact">
+                        الإبلاغ عن مشكلة
+                    </Link>
+                </Button>
+            </div>
         </div>
     )
 }
