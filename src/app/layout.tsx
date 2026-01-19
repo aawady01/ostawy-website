@@ -31,15 +31,6 @@ export const metadata: Metadata = {
     title: "أُسطاوى - تطبيق تعليم القيادة",
     description: "تعلم إشارات المرور وتدرب على الاختبار النظري مع أُسطاوى.",
   },
-  icons: {
-    icon: [
-      { url: "/images/icon.png", sizes: "any", type: "image/png" },
-      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
-    ],
-    apple: "/apple-touch-icon.png",
-    shortcut: "/images/icon.png",
-  },
   manifest: "/manifest.json",
 };
 
