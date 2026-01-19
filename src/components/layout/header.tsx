@@ -13,7 +13,7 @@ import {
     SheetTrigger,
     SheetTitle,
 } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
+import { Menu, Phone } from "lucide-react"
 import Image from "next/image"
 
 const navItems = [
@@ -29,12 +29,13 @@ export function Header() {
     const scrolled = useScroll(50)
     const pathname = usePathname()
     const [isOpen, setIsOpen] = React.useState(false)
+    const isHome = pathname === "/"
 
     return (
         <header
             className={cn(
                 "fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent",
-                scrolled
+                scrolled || !isHome
                     ? "bg-white/80 dark:bg-slate-950/80 backdrop-blur-md shadow-sm border-border/40"
                     : "bg-transparent py-4"
             )}
@@ -75,7 +76,17 @@ export function Header() {
                 </nav>
 
                 {/* Actions */}
-                <div className="hidden md:flex items-center gap-4">
+                <div className="hidden md:flex items-center gap-3">
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="rounded-full text-green-600 hover:text-green-700 hover:bg-green-100/50"
+                        asChild
+                    >
+                        <Link href="https://chat.whatsapp.com/ExsampleGroupLink" target="_blank" title="انضم لجروب الواتساب">
+                            <Phone className="w-5 h-5" />
+                        </Link>
+                    </Button>
                     <Button
                         variant="default"
                         className="rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:-translate-y-0.5"

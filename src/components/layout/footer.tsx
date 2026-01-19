@@ -66,6 +66,11 @@ export function Footer() {
                                     سياسة الخصوصية
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors">
+                                    شروط الاستخدام
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
