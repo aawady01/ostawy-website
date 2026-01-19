@@ -28,7 +28,7 @@ const testimonials = [
 
 export function Testimonials() {
     return (
-        <section className="py-24 bg-background">
+        <section id="testimonials" className="py-24 bg-background relative overflow-hidden">
             <div className="container px-4 md:px-6">
                 <MotionSection className="text-center mb-16 space-y-4">
                     <h2 className="text-3xl md:text-5xl font-extrabold text-foreground">

@@ -27,7 +27,7 @@ function Counter({ value, prefix = "", suffix = "" }: { value: number, prefix?: 
 
 export function Stats() {
     return (
-        <section className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
+        <section id="stats" className="py-20 bg-primary text-primary-foreground relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
 

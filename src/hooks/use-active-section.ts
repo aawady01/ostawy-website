@@ -1,38 +1,49 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 export function useActiveSection(sectionIds: string[]) {
     const [activeSection, setActiveSection] = useState<string>("")
+    const isClicked = useRef(false)
+    const timeoutId = useRef<NodeJS.Timeout | null>(null)
+
+    // Method to manually set active section (e.g. on click) and lock observer temporarily
+    const setSection = (id: string) => {
+        setActiveSection(id)
+        isClicked.current = true
+
+        if (timeoutId.current) clearTimeout(timeoutId.current)
+
+        timeoutId.current = setTimeout(() => {
+            isClicked.current = false
+        }, 1000) // Lock for 1 second during scroll animation
+    }
 
     useEffect(() => {
-        const observers: IntersectionObserver[] = []
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (isClicked.current) return
+
+                // Find the entry that is most visible
+                const visibleSection = entries.find((entry) => entry.isIntersecting)
+
+                if (visibleSection) {
+                    setActiveSection(visibleSection.target.id)
+                }
+            },
+            {
+                rootMargin: "-40% 0px -60% 0px", // Strict middle-of-screen threshold
+                threshold: 0,
+            }
+        )
 
         sectionIds.forEach((id) => {
             const element = document.getElementById(id)
-            if (element) {
-                const observer = new IntersectionObserver(
-                    (entries) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                                setActiveSection(id)
-                            }
-                        })
-                    },
-                    {
-                        rootMargin: "-20% 0px -50% 0px", // Trigger when section is near middle/top
-                        threshold: 0.1,
-                    }
-                )
-                observer.observe(element)
-                observers.push(observer)
-            }
+            if (element) observer.observe(element)
         })
 
-        return () => {
-            observers.forEach((observer) => observer.disconnect())
-        }
+        return () => observer.disconnect()
     }, [sectionIds])
 
-    return activeSection
+    return { activeSection, setActiveSection: setSection }
 }

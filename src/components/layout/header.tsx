@@ -33,7 +33,17 @@ export function Header() {
     const isHome = pathname === "/"
 
     // Track active section for home page scrolling
-    const activeSection = useActiveSection(["features", "about", "download", "testimonials", "stats"])
+    const { activeSection, setActiveSection } = useActiveSection(["features", "about", "download", "testimonials", "stats"])
+
+    const handleNavClick = (href: string) => {
+        setIsOpen(false)
+        if (href.startsWith("/#")) {
+            const id = href.replace("/#", "")
+            setActiveSection(id)
+        } else if (href === "/") {
+            setActiveSection("")
+        }
+    }
 
     // Helper to determine if a link is active
     const isActive = (href: string) => {
@@ -77,6 +87,7 @@ export function Header() {
                         <Link
                             key={item.href}
                             href={item.href}
+                            onClick={() => handleNavClick(item.href)}
                             className={cn(
                                 "px-4 py-2 rounded-full text-sm font-medium transition-colors hover:bg-primary/10 hover:text-primary",
                                 isActive(item.href)
@@ -127,7 +138,7 @@ export function Header() {
                                 <Link
                                     key={item.href}
                                     href={item.href}
-                                    onClick={() => setIsOpen(false)}
+                                    onClick={() => handleNavClick(item.href)}
                                     className={cn(
                                         "text-lg font-medium px-4 py-3 rounded-lg transition-colors hover:bg-muted",
                                         isActive(item.href)
