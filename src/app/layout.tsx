@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Almarai } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Header, Footer } from "@/components/layout"
+import { Header, Footer, FloatingWhatsApp, ScrollToTop } from "@/components/layout"
 
 const almarai = Almarai({
   subsets: ["arabic"],
@@ -121,11 +121,19 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="flex min-h-screen flex-col bg-background">
+            <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:right-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            >
+                تخطي للمحتوى الرئيسي
+            </a>
             <Header />
-            <main className="flex-1">
+            <main id="main-content" className="flex-1">
               {children}
             </main>
             <Footer />
+            <FloatingWhatsApp />
+            <ScrollToTop />
           </div>
         </ThemeProvider>
       </body>

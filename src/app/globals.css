@@ -212,3 +212,21 @@
   background: rgba(15, 23, 42, 0.4);
   border-color: rgba(255, 255, 255, 0.08);
 }
+
+/* Gradient text animation (Hero) */
+@keyframes gradient-x {
+  0%,
+  100% {
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+  }
+  50% {
+    background-size: 200% 100%;
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-x {
+  background-size: 200% 100%;
+  animation: gradient-x 4s ease-in-out infinite;
+}

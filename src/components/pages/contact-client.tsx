@@ -205,8 +205,13 @@ export default function ContactClient() {
                                         </FormItem>
                                     )}
                                 />
-                                <Button type="submit" size="lg" className="w-full text-lg">
-                                    إرسال الرسالة
+                                <Button
+                                    type="submit"
+                                    size="lg"
+                                    className="w-full text-lg"
+                                    disabled={form.formState.isSubmitting}
+                                >
+                                    {form.formState.isSubmitting ? "جاري الإرسال..." : "إرسال الرسالة"}
                                 </Button>
                             </form>
                         </Form>

@@ -14,8 +14,9 @@ import {
     SheetTrigger,
     SheetTitle,
 } from "@/components/ui/sheet"
-import { Menu, Phone } from "lucide-react"
+import { Menu, Moon, Phone, Sun } from "lucide-react"
 import Image from "next/image"
+import { useTheme } from "next-themes"
 import { WHATSAPP_LINK, PLAY_STORE_LINK } from "@/lib/site-config"
 
 const navItems = [
@@ -32,6 +33,7 @@ export function Header() {
     const pathname = usePathname()
     const [isOpen, setIsOpen] = React.useState(false)
     const isHome = pathname === "/"
+    const { resolvedTheme, setTheme } = useTheme()
 
     // Track active section for home page scrolling
     const { activeSection, setActiveSection } = useActiveSection(["features", "about", "download", "testimonials", "stats"])
@@ -106,10 +108,20 @@ export function Header() {
                     <Button
                         variant="ghost"
                         size="icon"
-                        className="rounded-full text-green-600 hover:text-green-700 hover:bg-green-100/50"
+                        className="rounded-full"
+                        onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                        title={resolvedTheme === "dark" ? "الوضع الفاتح" : "الوضع الداكن"}
+                        aria-label={resolvedTheme === "dark" ? "تفعيل الوضع الفاتح" : "تفعيل الوضع الداكن"}
+                    >
+                        {resolvedTheme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                    </Button>
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="rounded-full text-green-600 hover:text-green-700 hover:bg-green-100/50 dark:hover:bg-green-900/20"
                         asChild
                     >
-                        <Link href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" title="تواصل عبر واتساب">
+                        <Link href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" title="تواصل عبر واتساب" aria-label="تواصل عبر واتساب">
                             <Phone className="w-5 h-5" />
                         </Link>
                     </Button>
@@ -118,7 +130,7 @@ export function Header() {
                         className="rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:-translate-y-0.5"
                         asChild
                     >
-                        <Link href={PLAY_STORE_LINK} target="_blank" rel="noopener noreferrer">
+                        <Link href={PLAY_STORE_LINK} target="_blank" rel="noopener noreferrer" aria-label="تحميل التطبيق من Google Play">
                             تحميل التطبيق
                         </Link>
                     </Button>
@@ -127,9 +139,8 @@ export function Header() {
                 {/* Mobile Menu */}
                 <Sheet open={isOpen} onOpenChange={setIsOpen}>
                     <SheetTrigger asChild>
-                        <Button variant="ghost" size="icon" className="md:hidden">
+                        <Button variant="ghost" size="icon" className="md:hidden" aria-label="فتح القائمة">
                             <Menu className="w-6 h-6" />
-                            <span className="sr-only">فتح القائمة</span>
                         </Button>
                     </SheetTrigger>
                     <SheetContent side="right" className="w-[300px] sm:w-[400px]">
@@ -150,9 +161,18 @@ export function Header() {
                                     {item.name}
                                 </Link>
                             ))}
-                            <div className="mt-8 px-4">
-                                <Button className="w-full rounded-full" size="lg" asChild>
-                                    <Link href={PLAY_STORE_LINK} target="_blank" rel="noopener noreferrer">
+                            <div className="mt-6 flex gap-3">
+                                <Button
+                                    variant="outline"
+                                    size="icon"
+                                    className="rounded-full shrink-0"
+                                    onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+                                    aria-label={resolvedTheme === "dark" ? "الوضع الفاتح" : "الوضع الداكن"}
+                                >
+                                    {resolvedTheme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                                </Button>
+                                <Button className="flex-1 rounded-full" size="lg" asChild>
+                                    <Link href={PLAY_STORE_LINK} target="_blank" rel="noopener noreferrer" aria-label="تحميل التطبيق من Google Play">
                                         تحميل التطبيق مجاناً
                                     </Link>
                                 </Button>

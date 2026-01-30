@@ -29,8 +29,14 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+## متغيرات البيئة (اختياري)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+انسخ `.env.example` إلى `.env.local` وعدّل حسب الحاجة:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **نموذج التواصل:** عيّن `NEXT_PUBLIC_CONTACT_FORM_ACTION` (مثلاً رابط Formspree) لتفعيل إرسال الرسائل فعلياً.
+- **واتساب:** عيّن `NEXT_PUBLIC_WHATSAPP_GROUP_LINK` لتغيير الرابط الافتراضي (رقم أو جروب).
+- **تحليلات:** عيّن `NEXT_PUBLIC_GA_MEASUREMENT_ID` لتفعيل Google Analytics 4 لاحقاً.
+
+## النشر (GitHub Pages)
+
+المشروع مضبوط للبناء الثابت والنشر عبر GitHub Actions. بعد الـ push على الفرع `main` يتم البناء والنشر تلقائياً. تأكد من تفعيل **Pages** من **Settings → Pages** واختيار **GitHub Actions** كمصدر.
