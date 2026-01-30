@@ -2,11 +2,12 @@
 
 import { motion, useInView, useSpring, useTransform } from "framer-motion"
 import { useEffect, useRef } from "react"
+import { APP_STATS } from "@/lib/site-config"
 
 const stats = [
-    { value: 500, prefix: "+", label: "سؤال تدريبي" },
-    { value: 250, prefix: "+", label: "إشارة مرورية" },
-    { value: 6, label: "أنواع إشارات" },
+    { value: APP_STATS.questionsCount, prefix: "+", label: "سؤال تدريبي" },
+    { value: APP_STATS.signsCount, prefix: "+", label: "إشارة مرورية" },
+    { value: APP_STATS.signCategories, label: "أنواع إشارات" },
     { value: 100, suffix: "%", label: "مجاني" },
 ]
 

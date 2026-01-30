@@ -4,10 +4,6 @@ const nextConfig = {
     images: {
         unoptimized: true,
     },
-    // إجبار السيرفر على تجاهل أخطاء التايب سكريبت
-    typescript: {
-        ignoreBuildErrors: true,
-    },
     poweredByHeader: false,
 };
 

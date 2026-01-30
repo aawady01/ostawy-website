@@ -4,11 +4,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MotionSection } from "@/components/ui/motion-section"
 import { motion } from "framer-motion"
 import { BookOpen, CheckCircle2, Shield, Trophy } from "lucide-react"
+import { APP_STATS } from "@/lib/site-config"
 
 const features = [
     {
         title: "بنك أسئلة شامل",
-        description: "أكثر من 500 سؤال محدث يغطي كافة جوانب اختبار القيادة النظري في مصر.",
+        description: `أكثر من ${APP_STATS.questionsCount} سؤال محدث يغطي كافة جوانب اختبار القيادة النظري في مصر.`,
         icon: BookOpen,
         className: "md:col-span-2",
         delay: 0.1

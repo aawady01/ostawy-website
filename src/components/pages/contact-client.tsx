@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/form"
 import { Mail, Phone, Facebook, Linkedin, User } from "lucide-react"
 import Link from "next/link"
+import { CONTACT_FORM_ACTION } from "@/lib/site-config"
 
 const formSchema = z.object({
     name: z.string().min(2, {
@@ -40,11 +41,26 @@ export default function ContactClient() {
         },
     })
 
-    function onSubmit(values: z.infer<typeof formSchema>) {
-        // In a real app, send to API. For now, just log or show alert.
-        console.log(values)
-        alert("تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.")
-        form.reset()
+    async function onSubmit(values: z.infer<typeof formSchema>) {
+        if (CONTACT_FORM_ACTION) {
+            try {
+                const res = await fetch(CONTACT_FORM_ACTION, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(values),
+                })
+                if (!res.ok) throw new Error("فشل الإرسال")
+                alert("تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.")
+                form.reset()
+            } catch {
+                alert("حدث خطأ أثناء الإرسال. جرّب التواصل عبر الواتساب أو البريد.")
+            }
+        } else {
+            // بدون خدمة إرسال: تنبيه فقط (عدّل .env وأضف NEXT_PUBLIC_CONTACT_FORM_ACTION لتفعيل الإرسال)
+            console.log("Contact form data:", values)
+            alert("تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.")
+            form.reset()
+        }
     }
 
     return (

@@ -34,9 +34,9 @@ export function MotionSection({
             y: 0,
             x: 0,
             transition: {
-                duration: duration,
-                delay: delay,
-                ease: "easeOut",
+                duration,
+                delay,
+                ease: "easeOut" as const,
             },
         },
     }

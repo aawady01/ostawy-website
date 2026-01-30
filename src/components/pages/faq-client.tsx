@@ -1,5 +1,6 @@
 "use client"
 
+import { APP_STATS } from "@/lib/site-config"
 import {
     Accordion,
     AccordionContent,
@@ -29,7 +30,7 @@ const faqs = [
     },
     {
         question: "كم عدد الإشارات والأسئلة في التطبيق؟",
-        answer: "يحتوي التطبيق على أكثر من 100 إشارة مرورية متنوعة وأكثر من 250 سؤال تدريبي، وتغطي 6 فئات من الإشارات."
+        answer: `يحتوي التطبيق على أكثر من ${APP_STATS.signsCount} إشارة مرورية متنوعة وأكثر من ${APP_STATS.questionsCount} سؤال تدريبي، وتغطي ${APP_STATS.signCategories} فئات من الإشارات.`
     },
     {
         question: "ما هو نظام المراجعة الذكية؟",
@@ -41,7 +42,7 @@ const faqs = [
     },
     {
         question: "هل يعمل التطبيق على iPhone؟",
-        answer: "حالياً التطبيق متاح فقط لأجهزة Android. نعمل على إصدار نسخة iOS في كل المستقبل إن شاء الله."
+        answer: "حالياً التطبيق متاح فقط لأجهزة Android. نعمل على إصدار نسخة iOS في القريب العاجل إن شاء الله."
     },
     {
         question: "كيف أحذف بياناتي من التطبيق؟",

@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { Play } from "lucide-react"
+import { PLAY_STORE_LINK } from "@/lib/site-config"
 
 export function DownloadCTA() {
     return (
@@ -21,7 +22,7 @@ export function DownloadCTA() {
                         className="w-full sm:w-auto h-14 px-8 text-lg rounded-xl shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1"
                         asChild
                     >
-                        <Link href="https://play.google.com/store/apps/details?id=com.awady.ostawy" target="_blank" rel="noopener noreferrer">
+                        <Link href={PLAY_STORE_LINK} target="_blank" rel="noopener noreferrer">
                             <Play className="mr-2 w-5 h-5 fill-current" />
                             متوفر على Google Play
                         </Link>
