@@ -153,6 +153,12 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* تركيز واضح للوصولية (لوحة المفاتيح) */
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
 }
 
 /* Blob Animation for Hero Section */
@@ -229,4 +235,15 @@
 .animate-gradient-x {
   background-size: 200% 100%;
   animation: gradient-x 4s ease-in-out infinite;
+}
+
+/* احترام تفضيل تقليل الحركة (إمكانية وصول) */
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .animation-delay-2000,
+  .animation-delay-4000,
+  .animate-float,
+  .animate-gradient-x {
+    animation: none;
+  }
 }

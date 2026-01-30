@@ -3,6 +3,7 @@ import { Almarai } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header, Footer, FloatingWhatsApp, ScrollToTop } from "@/components/layout"
+import { Analytics } from "@/components/analytics"
 
 const almarai = Almarai({
   subsets: ["arabic"],
@@ -110,6 +111,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body className={`${almarai.className} antialiased`}>
+        <Analytics />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

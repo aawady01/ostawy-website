@@ -77,6 +77,16 @@ export function Footer() {
                                     حذف البيانات
                                 </Link>
                             </li>
+                            <li>
+                                <Link href="/changelog" className="text-muted-foreground hover:text-primary transition-colors">
+                                    سجل التحديثات
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/cookies" className="text-muted-foreground hover:text-primary transition-colors">
+                                    سياسة الكوكيز
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 

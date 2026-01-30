@@ -1,3 +1,5 @@
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+
 export const metadata = {
     title: "سياسة الخصوصية",
     description: "سياسة الخصوصية وحماية البيانات في تطبيق أُسطاوى.",
@@ -6,6 +8,7 @@ export const metadata = {
 export default function PrivacyPage() {
     return (
         <div className="container py-20 px-4 md:px-6 max-w-4xl mx-auto">
+            <Breadcrumbs items={[{ label: "الرئيسية", href: "/" }, { label: "سياسة الخصوصية" }]} className="mb-8 justify-center md:justify-start" />
             <div className="text-center mb-12 space-y-4">
                 {/* Breadcrumb Schema */}
                 <script

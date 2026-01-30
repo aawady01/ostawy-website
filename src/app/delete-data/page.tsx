@@ -1,3 +1,5 @@
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
+
 export const metadata = {
     title: "حذف البيانات",
     description: "كيفية حذف بياناتك من تطبيق أُسطاوى.",
@@ -6,6 +8,7 @@ export const metadata = {
 export default function DeleteDataPage() {
     return (
         <div className="container py-20 px-4 md:px-6 max-w-4xl mx-auto">
+            <Breadcrumbs items={[{ label: "الرئيسية", href: "/" }, { label: "حذف البيانات" }]} className="mb-8 justify-center md:justify-start" />
             <div className="text-center mb-12 space-y-4">
                 <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-400">
                     حذف البيانات

@@ -87,6 +87,7 @@ export function About() {
                                     fill
                                     className="object-contain drop-shadow-2xl"
                                     priority
+                                    sizes="(max-width: 1024px) 400px, 500px"
                                 />
                             </div>
 

@@ -2,6 +2,7 @@
 
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 import { useState, useCallback, useEffect } from "react"
@@ -146,6 +147,7 @@ export default function AppPreviewClient() {
 
     return (
         <div className="container py-20 px-4 md:px-6">
+            <Breadcrumbs items={[{ label: "الرئيسية", href: "/" }, { label: "معاينة التطبيق" }]} className="mb-8 justify-center md:justify-start" />
             <div className="text-center mb-16 space-y-4">
                 <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-400">
                     معاينة التطبيق

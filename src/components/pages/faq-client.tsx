@@ -1,6 +1,7 @@
 "use client"
 
 import { APP_STATS } from "@/lib/site-config"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 import {
     Accordion,
     AccordionContent,
@@ -66,6 +67,7 @@ export default function FAQClient() {
 
     return (
         <div className="container py-20 px-4 md:px-6">
+            <Breadcrumbs items={[{ label: "الرئيسية", href: "/" }, { label: "الأسئلة الشائعة" }]} className="mb-8 justify-center md:justify-start" />
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

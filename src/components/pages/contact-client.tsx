@@ -1,5 +1,6 @@
 "use client"
 
+import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -18,6 +19,9 @@ import {
 import { Mail, Phone, Facebook, Linkedin, User } from "lucide-react"
 import Link from "next/link"
 import { CONTACT_FORM_ACTION } from "@/lib/site-config"
+import { trackContactSubmit } from "@/lib/analytics"
+import { Toast } from "@/components/ui/toast"
+import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 
 const formSchema = z.object({
     name: z.string().min(2, {
@@ -32,6 +36,12 @@ const formSchema = z.object({
 })
 
 export default function ContactClient() {
+    const [toast, setToast] = React.useState<{ message: string; type: "success" | "error"; visible: boolean }>({
+        message: "",
+        type: "success",
+        visible: false,
+    })
+
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -40,6 +50,14 @@ export default function ContactClient() {
             message: "",
         },
     })
+
+    const showToast = React.useCallback((message: string, type: "success" | "error") => {
+        setToast({ message, type, visible: true })
+    }, [])
+
+    const hideToast = React.useCallback(() => {
+        setToast((t) => ({ ...t, visible: false }))
+    }, [])
 
     async function onSubmit(values: z.infer<typeof formSchema>) {
         if (CONTACT_FORM_ACTION) {
@@ -50,21 +68,25 @@ export default function ContactClient() {
                     body: JSON.stringify(values),
                 })
                 if (!res.ok) throw new Error("فشل الإرسال")
-                alert("تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.")
+                trackContactSubmit(true)
+                showToast("تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.", "success")
                 form.reset()
             } catch {
-                alert("حدث خطأ أثناء الإرسال. جرّب التواصل عبر الواتساب أو البريد.")
+                trackContactSubmit(false)
+                showToast("حدث خطأ أثناء الإرسال. جرّب التواصل عبر الواتساب أو البريد.", "error")
             }
         } else {
-            // بدون خدمة إرسال: تنبيه فقط (عدّل .env وأضف NEXT_PUBLIC_CONTACT_FORM_ACTION لتفعيل الإرسال)
             console.log("Contact form data:", values)
-            alert("تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.")
+            trackContactSubmit(true)
+            showToast("تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.", "success")
             form.reset()
         }
     }
 
     return (
+        <>
         <div className="container py-20 px-4 md:px-6">
+            <Breadcrumbs items={[{ label: "الرئيسية", href: "/" }, { label: "تواصل معنا" }]} className="mb-8 justify-center md:justify-start" />
             <div className="text-center mb-16 space-y-4">
                 <h1 className="text-3xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-teal-400">
                     تواصل معنا
@@ -219,6 +241,14 @@ export default function ContactClient() {
                 </Card>
 
             </div>
-        </div>
+            </div>
+
+            <Toast
+                message={toast.message}
+                type={toast.type}
+                visible={toast.visible}
+                onClose={hideToast}
+            />
+        </>
     )
 }

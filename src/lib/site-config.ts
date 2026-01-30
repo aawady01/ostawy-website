@@ -21,3 +21,6 @@ export const APP_STATS = {
  * - لربط خدمة مثل Formspree: عيّن NEXT_PUBLIC_CONTACT_FORM_ACTION إلى رابط الـ endpoint.
  */
 export const CONTACT_FORM_ACTION = process.env.NEXT_PUBLIC_CONTACT_FORM_ACTION
+
+/** معرّف Google Analytics 4 (اختياري — لتفعيل التحليلات) */
+export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
