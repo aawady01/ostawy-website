@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { Play, Share2, Download, Star, Users, CheckCircle } from "lucide-react"
+import { Share2, Download, Star, Users, CheckCircle } from "lucide-react"
 import { PLAY_STORE_LINK, APP_STATS } from "@/lib/site-config"
 import { trackDownload, trackEvent } from "@/lib/analytics"
 
