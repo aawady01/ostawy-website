@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header, Footer, FloatingWhatsApp, ScrollToTop } from "@/components/layout"
 import { Analytics } from "@/components/analytics"
+import { PageTransition } from "@/components/layout/page-transition"
 
 const almarai = Almarai({
   subsets: ["arabic"],
@@ -122,7 +123,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex min-h-screen flex-col bg-background">
+          <PageTransition>
+            <div className="flex min-h-screen flex-col bg-background">
             <a
                 href="#main-content"
                 className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:right-4 focus:z-[100] focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground focus:outline-none focus:ring-2 focus:ring-ring"
@@ -137,6 +139,7 @@ export default function RootLayout({
             <FloatingWhatsApp />
             <ScrollToTop />
           </div>
+          </PageTransition>
         </ThemeProvider>
       </body>
     </html>
