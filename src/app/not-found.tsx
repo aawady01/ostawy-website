@@ -24,6 +24,7 @@ export default function NotFound() {
                         الصفحة الرئيسية
                     </Link>
                 </Button>
+<<<<<<< Updated upstream
                 <a 
                     href={PLAY_STORE_LINK}
                     target="_blank"
@@ -32,6 +33,16 @@ export default function NotFound() {
                 >
                     تحميل التطبيق
                 </a>
+=======
+                <Link 
+                    href={PLAY_STORE_LINK}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-8 py-2"
+                >
+                    تحميل التطبيق
+                </Link>
+>>>>>>> Stashed changes
                 <Button asChild variant="outline" size="lg" className="rounded-full px-8">
                     <Link href="/faq">الأسئلة الشائعة</Link>
                 </Button>
