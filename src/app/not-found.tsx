@@ -25,6 +25,7 @@ export default function NotFound() {
                     </Link>
                 </Button>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 <a 
                     href={PLAY_STORE_LINK}
                     target="_blank"
@@ -34,6 +35,8 @@ export default function NotFound() {
                     تحميل التطبيق
                 </a>
 =======
+=======
+>>>>>>> Stashed changes
                 <Link 
                     href={PLAY_STORE_LINK}
                     target="_blank"
@@ -42,6 +45,9 @@ export default function NotFound() {
                 >
                     تحميل التطبيق
                 </Link>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 <Button asChild variant="outline" size="lg" className="rounded-full px-8">
                     <Link href="/faq">الأسئلة الشائعة</Link>
