@@ -5,8 +5,11 @@
 /** رابط واتساب — رسالة مباشرة لهذا الرقم (استبدل بالمتغير إن أردت جروباً) */
 export const WHATSAPP_LINK = process.env.NEXT_PUBLIC_WHATSAPP_GROUP_LINK ?? "https://wa.me/201550035776"
 
-/** رابط تحميل التطبيق على Google Play */
-export const PLAY_STORE_LINK = "https://play.google.com/store/apps/details?id=com.awady.ostawy"
+/** رابط تحميل التطبيق على Google Play - مع tracking لتحليلات */
+export const PLAY_STORE_LINK = "https://play.google.com/store/apps/details?id=com.ostawy.app&pcampaignid=web_share"
+
+/** رابط Google Play بدون tracking (للاستخدام العام) */
+export const PLAY_STORE_LINK_BASE = "https://play.google.com/store/apps/details?id=com.ostawy.app"
 
 /** أرقام موحدة للمحتوى (SEO وتجربة المستخدم) */
 export const APP_STATS = {

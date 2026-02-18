@@ -39,7 +39,7 @@ export const mobileAppSchema = {
     "bestRating": "5",
     "worstRating": "1"
   },
-  "downloadUrl": "https://play.google.com/store/apps/details?id=com.ostawy.app",
+  "downloadUrl": "https://play.google.com/store/apps/details?id=com.awady.ostawy",
   "softwareVersion": "2026.1",
   "datePublished": "2025-11-01",
   "contentRating": "Everyone",

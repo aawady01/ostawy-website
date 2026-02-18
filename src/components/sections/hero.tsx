@@ -6,6 +6,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useRef } from "react"
 import { WHATSAPP_LINK, PLAY_STORE_LINK } from "@/lib/site-config"
+import { trackDownload } from "@/lib/analytics"
 
 export function Hero() {
     const targetRef = useRef<HTMLDivElement>(null)
@@ -71,7 +72,7 @@ export function Hero() {
                             className="w-full sm:w-auto rounded-full text-lg h-14 px-10 shadow-xl shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 transform hover:-translate-y-1 hover:scale-105"
                             asChild
                         >
-                            <Link href={PLAY_STORE_LINK} target="_blank" rel="noopener noreferrer" aria-label="تحميل التطبيق من Google Play">
+                            <Link href={PLAY_STORE_LINK} target="_blank" rel="noopener noreferrer" aria-label="تحميل التطبيق من Google Play" onClick={() => trackDownload("hero_section")}>
                                 حمل التطبيق مجاناً
                             </Link>
                         </Button>

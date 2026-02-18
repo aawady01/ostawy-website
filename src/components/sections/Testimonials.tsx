@@ -3,7 +3,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card"
 import { MotionSection } from "@/components/ui/motion-section"
 import { Star } from "lucide-react"
-import { motion } from "framer-motion"
 
 const testimonials = [
     {
@@ -53,8 +52,8 @@ export function Testimonials() {
                                             <Star key={i} className={`w-5 h-5 ${i < testimonial.rating ? "fill-amber-400 text-amber-400" : "fill-muted text-muted"}`} />
                                         ))}
                                     </div>
-                                    <p className="text-lg leading-relaxed text-foreground/90 italic">
-                                        "{testimonial.content}"
+<p className="text-lg leading-relaxed text-foreground/90 italic">
+                                        &ldquo;{testimonial.content}&rdquo;
                                     </p>
                                 </CardHeader>
                                 <CardContent className="pt-4 flex items-center gap-4">

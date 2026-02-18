@@ -1,8 +1,35 @@
+import type { Metadata } from "next"
 import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "سجل التحديثات",
-  description: "آخر التحديثات والإصدارات في تطبيق أُسطاوى.",
+  description: "آخر التحديثات والإصدارات في تطبيق أُسطاوى. تابع جديد الميزات والتحسينات.",
+  keywords: ["سجل التحديثات", "التحديثات", "الإصدارات", "جديد", "تطوير"],
+  openGraph: {
+    title: "سجل التحديثات - أُسطاوى",
+    description: "آخر التحديثات والإصدارات في تطبيق أُسطاوى.",
+    url: "https://ostawy.com/changelog",
+    siteName: "أُسطاوى",
+    locale: "ar_EG",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "سجل التحديثات - أُسطاوى",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "سجل التحديثات - أُسطاوى",
+    description: "آخر التحديثات والإصدارات في تطبيق أُسطاوى.",
+    images: ["/images/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://ostawy.com/changelog",
+  },
 }
 
 const changelog = [
