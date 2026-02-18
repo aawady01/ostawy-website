@@ -1,9 +1,36 @@
+import type { Metadata } from "next"
 import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 
-export const metadata = {
-    title: "سياسة الخصوصية",
+export const metadata: Metadata = {
+  title: "سياسة الخصوصية",
+  description: "سياسة الخصوصية وحماية البيانات في تطبيق أُسطاوى. تعرف على كيفية حماية بياناتك.",
+  keywords: ["سياسة الخصوصية", "خصوصية", "حماية البيانات", "بيانات المستخدم", "سياسة"],
+  openGraph: {
+    title: "سياسة الخصوصية - أُسطاوى",
     description: "سياسة الخصوصية وحماية البيانات في تطبيق أُسطاوى.",
-};
+    url: "https://ostawy.com/privacy",
+    siteName: "أُسطاوى",
+    locale: "ar_EG",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "سياسة الخصوصية - أُسطاوى",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "سياسة الخصوصية - أُسطاوى",
+    description: "سياسة الخصوصية وحماية البيانات في تطبيق أُسطاوى.",
+    images: ["/images/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://ostawy.com/privacy",
+  },
+}
 
 export default function PrivacyPage() {
     return (

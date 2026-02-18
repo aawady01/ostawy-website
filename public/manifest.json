@@ -1,39 +1,105 @@
 {
-    "name": "أُسطاوى - تعليم القيادة",
+    "name": "أُسطاوى - تعلم إشارات المرور",
     "short_name": "أُسطاوى",
-    "description": "التطبيق الأول في مصر لتعلم إشارات المرور واجتياز اختبار القيادة.",
+    "description": "التطبيق الأول في مصر لتعلم إشارات المرور واجتياز اختبار القيادة النظري.",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#ffffff",
+    "display_override": ["fullscreen", "minimal-ui"],
+    "background_color": "#F7FBFB",
     "theme_color": "#05767C",
-    "orientation": "portrait",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "lang": "ar-EG",
+    "dir": "rtl",
     "categories": [
         "education",
         "productivity"
     ],
     "icons": [
         {
-            "src": "/android-chrome-192x192.png",
+            "src": "/icon.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
         },
         {
-            "src": "/android-chrome-512x512.png",
+            "src": "/icon.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any"
         }
     ],
     "shortcuts": [
         {
+            "name": "الصفحة الرئيسية",
+            "short_name": "الرئيسية",
+            "description": "الصفحة الرئيسية للتطبيق",
+            "url": "/",
+            "icons": [
+                {
+                    "src": "/icon.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "معاينة التطبيق",
+            "short_name": "معاينة",
+            "description": "شاهد شاشات التطبيق",
+            "url": "/app-preview",
+            "icons": [
+                {
+                    "src": "/icon.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
             "name": "الأسئلة الشائعة",
             "short_name": "الأسئلة",
+            "description": "الأسئلة الشائعة حول التطبيق",
             "url": "/faq",
             "icons": [
                 {
-                    "src": "/android-chrome-192x192.png",
+                    "src": "/icon.png",
+                    "sizes": "192x192"
+                }
+            ]
+        },
+        {
+            "name": "تواصل معنا",
+            "short_name": "تواصل",
+            "description": "تواصل مع فريق الدعم",
+            "url": "/contact",
+            "icons": [
+                {
+                    "src": "/icon.png",
                     "sizes": "192x192"
                 }
             ]
         }
-    ]
+    ],
+    "screenshots": [
+        {
+            "src": "/images/screenshots/home-screen.jpg",
+            "sizes": "1080x1920",
+            "type": "image/jpeg",
+            "form_factor": "narrow",
+            "label": "الشاشة الرئيسية"
+        }
+    ],
+    "related_applications": [
+        {
+            "platform": "play",
+            "id": "com.awady.ostawy",
+            "url": "https://play.google.com/store/apps/details?id=com.awady.ostawy"
+        }
+    ],
+    "prefer_related_applications": true
 }

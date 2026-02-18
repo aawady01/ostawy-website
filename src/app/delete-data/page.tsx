@@ -1,9 +1,22 @@
+import type { Metadata } from "next"
 import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 
-export const metadata = {
-    title: "حذف البيانات",
+export const metadata: Metadata = {
+  title: "حذف البيانات",
+  description: "كيفية حذف بياناتك من تطبيق أُسطاوى. يمكنك حذف جميع بياناتك بسهولة.",
+  keywords: ["حذف البيانات", "مسح البيانات", "خصوصية", "إزالة"],
+  openGraph: {
+    title: "حذف البيانات - أُسطاوى",
     description: "كيفية حذف بياناتك من تطبيق أُسطاوى.",
-};
+    url: "https://ostawy.com/delete-data",
+    siteName: "أُسطاوى",
+    locale: "ar_EG",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://ostawy.com/delete-data",
+  },
+}
 
 export default function DeleteDataPage() {
     return (

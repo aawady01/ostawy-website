@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Header, Footer, FloatingWhatsApp, ScrollToTop } from "@/components/layout"
 import { Analytics } from "@/components/analytics"
 import { PageTransition } from "@/components/layout/page-transition"
+import { ServiceWorkerRegistration } from "@/components/service-worker"
 
 const almarai = Almarai({
   subsets: ["arabic"],
@@ -113,6 +114,7 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body className={`${almarai.className} antialiased`}>
         <Analytics />
+        <ServiceWorkerRegistration />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

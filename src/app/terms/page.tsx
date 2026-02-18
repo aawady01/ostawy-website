@@ -1,9 +1,36 @@
+import type { Metadata } from "next"
 import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 
-export const metadata = {
-    title: "شروط الاستخدام",
+export const metadata: Metadata = {
+  title: "شروط الاستخدام",
+  description: "الشروط والأحكام التي تحكم استخدام تطبيق أُسطاوى. اقرأ شروط الاستخدام قبل استخدام التطبيق.",
+  keywords: ["شروط الاستخدام", "أحكام", "قوانين", "شروط الخدمة", "اتفاقية"],
+  openGraph: {
+    title: "شروط الاستخدام - أُسطاوى",
     description: "الشروط والأحكام التي تحكم استخدام تطبيق أُسطاوى.",
-};
+    url: "https://ostawy.com/terms",
+    siteName: "أُسطاوى",
+    locale: "ar_EG",
+    type: "website",
+    images: [
+      {
+        url: "/images/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "شروط الاستخدام - أُسطاوى",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "شروط الاستخدام - أُسطاوى",
+    description: "الشروط والأحكام التي تحكم استخدام تطبيق أُسطاوى.",
+    images: ["/images/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://ostawy.com/terms",
+  },
+}
 
 export default function TermsPage() {
     return (

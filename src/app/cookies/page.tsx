@@ -1,8 +1,21 @@
+import type { Metadata } from "next"
 import { Breadcrumbs } from "@/components/ui/breadcrumbs"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "سياسة ملفات تعريف الارتباط",
   description: "كيفية استخدام تطبيق أُسطاوى وموقعه لملفات تعريف الارتباط (الكوكيز).",
+  keywords: ["كوكيز", "ملفات تعريف الارتباط", "سياسة الكوكيز", "خصوصية"],
+  openGraph: {
+    title: "سياسة ملفات تعريف الارتباط - أُسطاوى",
+    description: "كيفية استخدام تطبيق أُسطاوى وموقعه لملفات تعريف الارتباط.",
+    url: "https://ostawy.com/cookies",
+    siteName: "أُسطاوى",
+    locale: "ar_EG",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://ostawy.com/cookies",
+  },
 }
 
 export default function CookiesPage() {
