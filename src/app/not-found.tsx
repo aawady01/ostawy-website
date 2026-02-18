@@ -26,6 +26,7 @@ export default function NotFound() {
                 </Button>
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 <a 
                     href={PLAY_STORE_LINK}
                     target="_blank"
@@ -37,6 +38,8 @@ export default function NotFound() {
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
                 <Link 
                     href={PLAY_STORE_LINK}
                     target="_blank"
@@ -46,6 +49,9 @@ export default function NotFound() {
                     تحميل التطبيق
                 </Link>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
