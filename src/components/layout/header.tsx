@@ -18,6 +18,7 @@ import { Menu, Moon, Phone, Sun } from "lucide-react"
 import Image from "next/image"
 import { useTheme } from "next-themes"
 import { WHATSAPP_LINK, PLAY_STORE_LINK } from "@/lib/site-config"
+import { trackDownload } from "@/lib/analytics"
 
 const navItems = [
     { name: "الرئيسية", href: "/" },
@@ -130,7 +131,7 @@ export function Header() {
                         className="rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/30 transition-all hover:-translate-y-0.5"
                         asChild
                     >
-                        <Link href={PLAY_STORE_LINK} target="_blank" rel="noopener noreferrer" aria-label="تحميل التطبيق من Google Play">
+                        <Link href={PLAY_STORE_LINK} target="_blank" rel="noopener noreferrer" aria-label="تحميل التطبيق من Google Play" onClick={() => trackDownload("mobile_menu")}>
                             تحميل التطبيق
                         </Link>
                     </Button>
@@ -172,7 +173,7 @@ export function Header() {
                                     {resolvedTheme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                                 </Button>
                                 <Button className="flex-1 rounded-full" size="lg" asChild>
-                                    <Link href={PLAY_STORE_LINK} target="_blank" rel="noopener noreferrer" aria-label="تحميل التطبيق من Google Play">
+<Link href={PLAY_STORE_LINK} target="_blank" rel="noopener noreferrer" aria-label="تحميل التطبيق من Google Play" onClick={() => trackDownload("header")}>
                                         تحميل التطبيق مجاناً
                                     </Link>
                                 </Button>
